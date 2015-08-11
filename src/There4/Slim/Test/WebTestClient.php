@@ -3,7 +3,7 @@
  * This is largely a clone of there4/slim-test-helpers/src/There4/Slim/Test/WebTestClient,
  * but the key difference is that we use the PJAX request method, which sets flags on the request object
  * that our various controllers and helpers expect to be present.
- * This change is around line 65 of this file. 
+ * This change is around line ~90 of this file. 
  */
 
 namespace There4\Slim\Test;
