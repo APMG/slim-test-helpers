@@ -1,4 +1,10 @@
 <?php
+/**
+ * This is largely a clone of there4/slim-test-helpers/src/There4/Slim/Test/WebTestClient,
+ * but the key difference is that we use the PJAX request method, which sets flags on the request object
+ * that our various controllers and helpers expect to be present.
+ * This change is around line 65 of this file. 
+ */
 
 namespace There4\Slim\Test;
 
@@ -80,7 +86,8 @@ class WebTestClient
         Slim\Environment::mock(array_merge($options, $optionalHeaders));
         $env = Slim\Environment::getInstance();
         $this->app->router = new NoCacheRouter($this->app->router);
-        $this->app->request = new Slim\Http\Request($env);
+        $this->app->request = new \APM\Views\PJAX\Request($env);
+        //$this->app->request = new Slim\Http\Request($env);
         $this->app->response = new Slim\Http\Response();
 
         // Establish some useful references to the slim app properties
